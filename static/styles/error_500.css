@@ -1,0 +1,38 @@
+body {
+    background-color: #CFC8C0;
+  }
+  
+  .mainbox {
+    background-color: #CFC8C0;
+    margin: auto;
+    height: 600px;
+    width: 600px;
+    position: relative;
+  }
+  
+  .far {
+    position: absolute;
+    font-size: 8.5rem;
+    left: 35%;
+    top: 15%;
+    color: #000000;
+  }
+  
+  .msg {
+      text-align: center;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1.6rem;
+      position:absolute;
+      left: 10%;
+      top: 45%;
+      width: 75%;
+    }
+  
+  a {
+    text-decoration: none;
+    color: #5E5B54;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
