@@ -51,7 +51,7 @@ def predictions():
     img_loaded = Image.open(os.path.join(app.config['imgdir'], filename))
     img_loaded.save('Images/identification_img.png')
 
-    img_dim = (100, 100)
+    img_dim = (150, 150)
     img_pred = cv2.imread('Images/identification_img.png') # read input image
     image_shape = cv2.resize(img_pred, img_dim) # set width and height dimension for the image
     image_pred = np.expand_dims(image_shape, axis=0) # expand the image dimension to 4 dimension
