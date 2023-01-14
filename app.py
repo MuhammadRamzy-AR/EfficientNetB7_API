@@ -38,7 +38,7 @@ def base_main():
 @app.route('/prediction', methods=['POST'])
 def predictions():
     # Load trained and tested EfficientNetB-7 model
-    model_path = 'Model/EfficientNetB7_1.h5'
+    model_path = 'Model/EfficientNetB7_SGD.h5'
     model = load_model(model_path, compile=False)
 
     # Load image that sent from the front-end
@@ -55,7 +55,7 @@ def predictions():
     img_pred = cv2.imread('Images/identification_img.png') # read input image
     image_shape = cv2.resize(img_pred, img_dim) # set width and height dimension for the image
     image_pred = np.expand_dims(image_shape, axis=0) # expand the image dimension to 4 dimension
-    pred_labels = ['Cataract', 'Normal']
+    pred_labels = ['Bukan Fundus Mata', 'Cataract', 'Normal' ]
 
     try:
         # do prediction to the pre-processed image
@@ -70,9 +70,9 @@ def predictions():
         print(output_str)
 
     # return this when output_str is empty when classification process failed
-    if not output_str:
-        output_str = "Classification cannot be complete"
-        response_string = "Data cannot be processed, please check your file"
+    if model_pred_output == 'Bukan Fundus Mata':
+        output_str = "Klasifikasi tidak dapat dilakukan. Gambar tidak dikenali sebagai fundus mata. Mohon pilih file yang sesuai."
+        response_string = "Image is not categorised as fundus mata, please check your file"
         file_status = "Cannot be processed"
         success_status = False
         details = {
